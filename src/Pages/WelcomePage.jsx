@@ -12,11 +12,11 @@ const WelcomePage = () => {
                 <div className="absolute top-[50vh]">
                     <div className="">
                         <img src={Icon} alt="" className="ml-[40px] mr-[10px]"/>
-                        <div className="p-[8px] bg-Theme2 shadow-2xl"></div>
+                        <div className="p-[8px] bg-Theme2 shadow-gray-600 shadow-md"></div>
                     </div>
                 </div>
                 <Link to="/Activities">
-                    <motion.button className="absolute bottom-[10vh] inset-x-[50px] py-[20px] object-center text-Secondary bg-Primary rounded-[10px] shadow-2xl"
+                    <motion.button className="absolute bottom-[10vh] inset-x-[50px] py-[20px] object-center text-Secondary bg-Primary rounded-[10px] shadow-gray-600 shadow-md"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ 
