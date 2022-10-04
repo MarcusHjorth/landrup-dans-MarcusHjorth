@@ -11,7 +11,7 @@ import CalendarAdmin from './Pages/CalendarAdmin'
 function App() {
   return (
     <Router>
-      <div className="h-screen w-screen font-Ubuntu">
+      <div className="h-screen w-screen font-Ubuntu text-Secondary text-18">
         <Routes>
           <Route path="*" element={ <WelcomePage />} />
           <Route path="/Activities" element={ <ActivitiesPage /> } />
