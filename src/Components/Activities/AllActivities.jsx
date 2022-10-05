@@ -19,8 +19,8 @@ const AllActivities = () => {
     return ( 
         <section className="mb-[80px]">
             {items && Object.values(items).map((item, i, id) => (
-                <Link to={`/Activity/${item.id}`}>
-                    <article key={ i } className="text-white mb-[2rem] flex flex-col justify-center items-center w-full ">
+                <Link key={ i } to={`/Activity/${item.id}`}>
+                    <article className="text-white mb-[2rem] flex flex-col justify-center items-center w-full ">
                         <figure className="max-w-[22rem] max-h-[22rem] rounded-[30px] rounded-br-none relative overflow-hidden">
                             <img src={item.asset.url} alt="" className="object-top" />
                             <div className="absolute bottom-0 rounded-tr-[30px] p-[20px] text-Dark bg-Theme bg-opacity-80 w-full h-[30%]">
