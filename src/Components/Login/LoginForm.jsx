@@ -7,14 +7,16 @@ import { ContextState } from "../../Context/Context";
 
 
 const schema = yup.object({
-    username: yup.string("Indsæt et gyldigt brugernavn").
-        required("Indsæt et gyldigt brugernavn").
-        max(16, "Indsæt et gyldigt brugernavn").
-        matches(/^[aA-zZÅ-ÿ - 0-9]+$/, "Brugernavnet må kun indeholde bogstaver"),
+    username: yup.string(
+        "Indsæt et gyldigt brugernavn").required(
+        "Indsæt et gyldigt brugernavn").max(
+        16, "Indsæt et gyldigt brugernavn").matches(
+        /^[aA-zZÅ-ÿ - 0-9]+$/, "Brugernavnet må kun indeholde bogstaver"),
 
-    password: yup.string().required("Indsæt en gyldig adgangskode").
-        min(4, "Indsæt en gyldig adgangskode" ).
-        max(32, "Indsæt en gyldig adgangskode" ),
+    password: yup.string().required(
+        "Indsæt en gyldig adgangskode").min(
+        4, "Indsæt en gyldig adgangskode" ).max(
+        32, "Indsæt en gyldig adgangskode" ),
         /* matches("^(?=.*[aA-zZÅ-ÿ])(?=.*[0-9])",
             "Kodeordet skal indeholde mindst 1 stort og småt bogstag, og mindst 1 tal"
         ), */

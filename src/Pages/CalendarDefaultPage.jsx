@@ -8,14 +8,12 @@ import Navigation from "../Templates/Navigation";
 
 const CalendarDefaultPage = () => {
     const context = useContext( ContextState )
-
-    const URL = `http://localhost:4000/api/v1/users/${context.userID}`
     const [ data, setData ] = useState()
     
     useEffect(() => {
         if (context.isLoggedIn === true) {
             axios({
-                url: URL,
+                url: `http://localhost:4000/api/v1/users/${context.userID}`,
                 method: "GET",
                 headers: {
                 Authorization: `Bearer ${context.token}`
@@ -24,7 +22,7 @@ const CalendarDefaultPage = () => {
                 setData(request.data) 
             })
         }
-    }, [ ])
+    }, [ context.isLoggedIn, context.token, context.userID ])
 
     console.log(data && data.activities);
     
