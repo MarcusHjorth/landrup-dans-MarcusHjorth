@@ -9,12 +9,14 @@ import { ContextState } from "../../Context/Context";
 const schema = yup.object({
     username: yup.string("Indsæt et gyldigt brugernavn").
         required("Indsæt et gyldigt brugernavn").
-        max(16, "Indsæt et gyldigt brugernavn"),
+        max(16, "Indsæt et gyldigt brugernavn").
+        matches(/^[aA-zZÅ-ÿ - 0-9]+$/, "Brugernavnet må kun indeholde bogstaver"),
+
     password: yup.string().required("Indsæt en gyldig adgangskode").
         min(4, "Indsæt en gyldig adgangskode" ).
         max(32, "Indsæt en gyldig adgangskode" ),
         /* matches("^(?=.*[aA-zZÅ-ÿ])(?=.*[0-9])",
-            "Invalid password"
+            "Kodeordet skal indeholde mindst 1 stort og småt bogstag, og mindst 1 tal"
         ), */
 }).required()
 
@@ -25,7 +27,7 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const context = useContext( ContextState )
     
-    const [ loginEror, setLoginError ] = useState(null)
+    const [ loginError, setLoginError ] = useState(null)
 
     const onSubmit = data => {
         console.log(data)
@@ -55,13 +57,15 @@ const LoginForm = () => {
         })
         .catch((err) => {
             console.log('Error', err.message);
+            setLoginError(true)
             context.setIsLoading(false)
         })
     }
     return ( 
         <section className="absolute top-[20vh] p-[40px] w-full">
-
             <h1 className="text-[48px]">Log ind</h1>
+            {loginError && <p>Unauthorized user!</p>}
+
             <form className="flex flex-col items-center text-Dark"
                 onSubmit={handleSubmit(onSubmit)}>
 

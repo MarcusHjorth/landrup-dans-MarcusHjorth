@@ -31,6 +31,8 @@ const ActivityDetails = () => {
                 <h1 className="text-24">{ item.name }</h1>
                 <p>{ item.minAge } - { item.maxAge } år</p>
                 <br />
+                <p>{ item.weekday } { item.time }</p>
+                <br />
                 <p>{ item.description }</p>
             </div>
 
