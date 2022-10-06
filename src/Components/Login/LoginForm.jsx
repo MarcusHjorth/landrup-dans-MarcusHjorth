@@ -52,10 +52,11 @@ const LoginForm = () => {
             context.setUserID(result.userId)
             context.setIsLoggedIn(true)
             context.setIsLoading(false)
+            context.setUserRole(result.role)
 
             console.log(context.token);
             console.log(context.isLoading);
-            navigate('/Activities', { replace: true });
+            navigate('/Calender', { replace: true });
         })
         .catch((err) => {
             console.log('Error', err.message);
@@ -66,7 +67,7 @@ const LoginForm = () => {
     return ( 
         <section className="absolute top-[20vh] p-[40px] w-full">
             <h1 className="text-[48px]">Log ind</h1>
-            {loginError && <p>Unauthorized user!</p>}
+            {loginError && <p>Forkert brugernavn eller adgangskode</p>}
 
             <form className="flex flex-col items-center text-Dark"
                 onSubmit={handleSubmit(onSubmit)}>

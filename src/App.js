@@ -18,7 +18,7 @@ function App() {
           <Route path="/Activity/:id" element={<ActivityDetails /> } />
           <Route path="/Search" element={ <SearchPage /> } />
           <Route path="/Calender" element={ <CalendarDefaultPage />} />
-          <Route path="/CalenderAdmin" element={ <CalendarAdmin /> } />
+          <Route path="/CalenderAdmin/:id" element={ <CalendarAdmin /> } />
           <Route path="/Login" element={ <LoginPage /> } />
         </Routes>
       </div>

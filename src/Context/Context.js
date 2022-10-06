@@ -9,7 +9,8 @@ const StateProvider = ({children}) => {
     const [ isLoggedIn, setIsLoggedIn ] = useState(false)
     const [ isLoading, setIsLoading ] = useState(false)
     const [ token, setToken ] = useState("")
-    const [ userID, setUserID ] = useState(null)
+    const [ userID, setUserID ] = useState("")
+    const [ userRole, setUserRole ] = useState("")
 
 
     //values
@@ -20,6 +21,7 @@ const StateProvider = ({children}) => {
             isLoading,
             token,
             userID,
+            userRole,
 
             setUsername,
             setPassword,
@@ -27,7 +29,8 @@ const StateProvider = ({children}) => {
             setIsLoading,
             setToken,
             setUserID,
-        }), [username, password, isLoggedIn, isLoading, token, userID]
+            setUserRole,
+        }), [username, password, isLoggedIn, isLoading, token, userID, userRole]
     );
 
     return (
