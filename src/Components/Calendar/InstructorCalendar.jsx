@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 const InstructorCalendar = () => {
     const context = useContext( ContextState )
     const [ data, setData ] = useState()
-    const isInstructor = data && data.some(instructorId => instructorId === context.userID)
-
     
     useEffect(() => {
         axios({
@@ -17,7 +15,6 @@ const InstructorCalendar = () => {
             setData(request.data)
         })
     }, [ ])
-
 
     return ( 
         <div>

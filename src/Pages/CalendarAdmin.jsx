@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Title from '../Components/Title';
 import Navigation from '../Templates/Navigation';
 
-const CalendarAdmin = (props) => {
+const CalendarAdmin = () => {
     const context = useContext( ContextState )
     const [ data, setData ] = useState()
     const navigate = useNavigate();
@@ -28,17 +28,19 @@ const CalendarAdmin = (props) => {
             navigate('/Activities', { replace: true });
         }
     }, [ context.userID, context.userRole, context.token, navigate, id, URL ])
-    
-    console.log(props);
-    console.log(URL);
-    console.log(data);
 
     return ( 
         <main className="h-screen">
             <div className="p-[20px]">
 
-                <Title text={props.name} />
-                CalenderAdmin
+                <Title text={data && data[0].activity}/>
+                
+                <section>
+                    {data && Object.values(data).map((data, i,) => (
+                        <p key={ i } className="w-full">{ data.firstname } { data.lastname }</p>
+                    ))} 
+                </section>
+
             </div>
         <Navigation />
         </main>

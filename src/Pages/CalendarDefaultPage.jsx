@@ -14,8 +14,6 @@ const CalendarDefaultPage = () => {
     const [ data, setData ] = useState()
     const userURL = `http://localhost:4000/api/v1/users/${context.userID}`;
     const instructorURL = `http://localhost:4000/api/v1/activities`;
-    /* const isInstructor = data && data.some(instructorId => instructorId === context.userID) */
-
     
     useEffect(() => {
         if (context.isLoggedIn === true) {
