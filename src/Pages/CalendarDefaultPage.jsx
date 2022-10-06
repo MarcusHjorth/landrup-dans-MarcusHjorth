@@ -1,6 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { ContextState } from "../Context/Context";
-import axios from "axios";
 import { Link } from 'react-router-dom';
 
 import Title from "../Components/Title";
