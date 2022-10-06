@@ -27,7 +27,7 @@ const ActivityDetails = () => {
             <figure className="relative">
                 <img src={ data.asset.url } alt="" className="w-full h-[60vh] object-cover"/>
                 { context.isLoggedIn && 
-                    <AddToActivity id={ data.id}/>
+                    <AddToActivity minAge={data.minAge} maxAge={data.maxAge} id={ data.id}/>
                 }
             </figure>
 

@@ -50,9 +50,9 @@ const LoginForm = () => {
             console.log(result);
             context.setToken(result.token)
             context.setUserID(result.userId)
+            context.setUserRole(result.role)
             context.setIsLoggedIn(true)
             context.setIsLoading(false)
-            context.setUserRole(result.role)
 
             console.log(context.token);
             console.log(context.isLoading);

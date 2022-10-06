@@ -11,23 +11,6 @@ import UserCalendar from '../Components/Calendar/UserCalendar';
 
 const CalendarDefaultPage = () => {
     const context = useContext( ContextState )
-    const [ data, setData ] = useState()
-    const userURL = `http://localhost:4000/api/v1/users/${context.userID}`;
-    const instructorURL = `http://localhost:4000/api/v1/activities`;
-    
-    useEffect(() => {
-        if (context.isLoggedIn === true) {
-            axios({
-                url: context.userRole === "instructor" ? instructorURL : userURL,
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${context.token}`
-                },
-            }).then(request => { 
-                setData(request.data)
-            })
-        } 
-    }, [ context.isLoggedIn, context.token, context.userID, context.userRole, instructorURL, userURL ])
     
     return ( 
         <main className="h-screen">
