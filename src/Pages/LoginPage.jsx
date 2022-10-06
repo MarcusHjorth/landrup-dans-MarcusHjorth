@@ -9,7 +9,7 @@ const LoginPage = () => {
     const context = useContext( ContextState )
     
     return ( 
-        <main className="h-screen">
+        <main className="h-screen relative">
             {context.isLoading && <LoadingScreen /> }
 
             <figure className="relative h-full w-screen overflow-hidden">

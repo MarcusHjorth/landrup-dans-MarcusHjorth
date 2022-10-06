@@ -21,7 +21,6 @@ const ActivityDetails = () => {
         })
     }, [ id ])
 
-    console.log(data);
     return ( 
         data ?
         <main className="text-Secondary font-semibold">

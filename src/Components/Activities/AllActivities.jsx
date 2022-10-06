@@ -4,28 +4,27 @@ import axios from "axios"
 
 const AllActivities = () => {
     const URL = "http://localhost:4000/api/v1/activities"
-    const [ items, setItems ] = useState()
+    const [ data, setData ] = useState()
     
       useEffect(() => {
           axios({
               url: URL,
               method: "GET",
           }).then(request => { 
-              setItems(request.data)
+              setData(request.data)
           })
       }, [ ])
 
-      console.log(items && items);
     return ( 
         <section className="mb-[80px]">
-            {items && Object.values(items).map((item, i, id) => (
-                <Link key={ i } to={`/Activity/${item.id}`}>
+            {data && Object.values(data).map((data, i, id) => (
+                <Link key={ i } to={`/Activity/${data.id}`}>
                     <article className="text-white mb-[2rem] flex flex-col justify-center items-center w-full ">
                         <figure className="max-w-[22rem] max-h-[22rem] rounded-[30px] rounded-br-none relative overflow-hidden">
-                            <img src={item.asset.url} alt="" className="object-top" />
+                            <img src={data.asset.url} alt="" className="object-top" />
                             <div className="absolute bottom-0 rounded-tr-[30px] p-[20px] text-Dark bg-Theme bg-opacity-80 w-full h-[30%]">
-                                <h1>{item.name}</h1>
-                                <p>{ item.minAge } - { item.maxAge } år</p>
+                                <h1>{data.name}</h1>
+                                <p>{ data.minAge } - { data.maxAge } år</p>
                             </div>
                         </figure>
                     </article>
