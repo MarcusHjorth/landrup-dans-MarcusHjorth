@@ -14,7 +14,7 @@ const LoginPage = () => {
 
             <figure className="relative h-full w-screen overflow-hidden">
                 <img src={Baggrund} alt="" className="h-full w-full object-cover" />
-{/*                 <div className="absolute top-[-150px] h-[1000px] rotate-[70deg] w-[550px] bg-Dark bg-opacity-40 overflow-hidden"></div> */}
+                {/* <div className="absolute top-[-150px] h-[1000px] rotate-[70deg] w-[550px] bg-Dark bg-opacity-40 overflow-hidden"></div> */}
             
                 <LoginForm />
               

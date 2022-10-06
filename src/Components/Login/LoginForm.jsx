@@ -32,7 +32,6 @@ const LoginForm = () => {
     const [ loginError, setLoginError ] = useState(null)
 
     const onSubmit = data => {
-        console.log(data)
         context.setUsername(data.username)
         context.setPassword(data.password)
         context.setIsLoading(true)
@@ -47,15 +46,12 @@ const LoginForm = () => {
         .then((response) => response.json())
         .then((result) => {
             reset()
-            console.log(result);
             context.setToken(result.token)
             context.setUserID(result.userId)
+            context.setUserRole(result.role)
             context.setIsLoggedIn(true)
             context.setIsLoading(false)
-            context.setUserRole(result.role)
 
-            console.log(context.token);
-            console.log(context.isLoading);
             navigate('/Calender', { replace: true });
         })
         .catch((err) => {

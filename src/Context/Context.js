@@ -12,7 +12,6 @@ const StateProvider = ({children}) => {
     const [ userID, setUserID ] = useState("")
     const [ userRole, setUserRole ] = useState("")
 
-
     //values
     const value = useMemo(() => ({
             username,
