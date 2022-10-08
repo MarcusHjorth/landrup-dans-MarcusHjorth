@@ -9,7 +9,7 @@ const CalendarAdmin = () => {
     const context = useContext( ContextState )
     const [ data, setData ] = useState()
     const navigate = useNavigate();
-    const { id } = useParams()
+    const { id, Activity } = useParams()
     
     const URL = `http://localhost:4000/api/v1/users/${ context.userID }/roster/${ id }`
 
@@ -33,7 +33,7 @@ const CalendarAdmin = () => {
         <main className="h-screen">
             <div className="p-[20px]">
 
-                <Title text={data && data[0].activity}/>
+                <Title text={Activity}/>
                 
                 <section>
                     {data && Object.values(data).map((data, i,) => (

@@ -19,7 +19,7 @@ const InstructorCalendar = () => {
     return ( 
         <div>
             {data && data.filter(instructor => instructor.instructorId === context.userID).map(({name, assetId, time, weekday}, i ) => {
-                return <Link name={name}  key={ i } to={`/CalenderAdmin/${assetId}`}>
+                return <Link name={name}  key={ i } to={`/CalenderAdmin/${name}/${assetId}`}>
                     <div className="h-[7rem] p-[20px] rounded-[11px] mt-[1rem] text-Dark bg-Secondary flex flex-col justify-around">
                         <h1 className="text-36 font-bold whitespace-nowrap overflow-ellipsis overflow-hidden">{name}</h1>
                         <p className="w-[20rem] space-x-4 text-18 font-medium"
