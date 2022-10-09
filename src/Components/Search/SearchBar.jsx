@@ -8,6 +8,7 @@ const SearchBar = () => {
 
     const [ data, setData ] = useState()
     const [ filteredData, setFilteredData ] = useState([])
+    const [ noData, setNoData ] = useState(false)
 
       useEffect(() => {
           axios({
@@ -25,12 +26,20 @@ const SearchBar = () => {
             )
             if ( search === "" ) {
                 setFilteredData([])
-            } else {
+                setNoData(false)
+
+            } 
+            /* else if ( newFilter.length === 0 ) {
+                setNoData(true)
+
+            }  */
+            else {
                 setFilteredData(newFilter)
+                setNoData(false)
             }
         }
 
-    
+
     return ( 
         <section className="my-[2rem]">
             <div className="realative flex flex-row items-center">
@@ -42,9 +51,12 @@ const SearchBar = () => {
 
             {filteredData.length !== 0 && (
                 <div className="bg-Secondary bg-opacity-30 p-[10px] my-[5px]">
+                    {noData && <p>
+                            Det blev ikke fundet nogle aktiviteter. Prøv at søge efter noget andet
+                        </p>}
                     {filteredData && filteredData.map((item, i) => (
-                        <Link to={`/Activity/${item.id}`}>
-                            <li key={ i } className="list-none flex flex-row items-center my-[5px]">
+                        <Link key={ i } to={`/Activity/${item.id}`}>
+                            <li className="list-none flex flex-row items-center my-[5px]">
                                 <img src={item.asset.url} alt="" className="w-[4rem] h-[4rem] mr-[10px] object-cover"/>
                                 <p>{ item.name }</p>
                             </li>
